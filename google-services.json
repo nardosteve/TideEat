@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "547847018734",
+    "firebase_url": "https://tideeat.firebaseio.com",
+    "project_id": "tideeat",
+    "storage_bucket": "tideeat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547847018734:android:46a44501e655a9628f3bff",
+        "android_client_info": {
+          "package_name": "com.stormapps.tideeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547847018734-dg2dg3duglor0vuiuiqe11kqg9b4pv3e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stormapps.tideeat",
+            "certificate_hash": "6e8762ae6171ded2139f73f2d35be98b1a52b38e"
+          }
+        },
+        {
+          "client_id": "547847018734-64ufkae2t7sktncelkmk89n7bhselpsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDquyTNbwTDEGVhx-G2FU_OZuqnvZAjcFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547847018734-64ufkae2t7sktncelkmk89n7bhselpsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
