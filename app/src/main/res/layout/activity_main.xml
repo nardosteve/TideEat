@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:src="@drawable/TideEat"
+            android:src="@drawable/tide_eat"
             android:layout_width="400dp"
             android:layout_height="200dp"/>
 
@@ -59,7 +59,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-
             app:buttonColor="@color/btnSignActive"
             app:shadowColor="@android:color/black"
             app:shadowEnabled="true"
