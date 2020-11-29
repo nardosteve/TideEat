@@ -53,17 +53,20 @@ public class SignIn extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         //Check if User doesn't Exist
-                        if(dataSnapshot.child(edtPhone.getText().toString()).exists()){
-                        //Get User Data
-                        mDialog.dismiss();
-                        User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
+                        if (dataSnapshot.child(edtPhone.getText().toString()).exists()) {
+                            //Get User Data
+                            mDialog.dismiss();
+                            User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
 
-                        if(user.getPassword().equals(edtPassword.getText().toString())){
-                            Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(SignIn.this, "Sign in failed", Toast.LENGTH_SHORT).show();
+                            if (user.getPassword().equals(edtPassword.getText().toString())) {
+                                Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(SignIn.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                      }else{
+                        else {
+                            mDialog.dismiss();
                             Toast.makeText(SignIn.this, "User does not exist", Toast.LENGTH_SHORT).show();
                         }
                     }
