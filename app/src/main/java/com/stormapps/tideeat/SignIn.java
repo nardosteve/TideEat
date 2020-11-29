@@ -44,11 +44,12 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
 
                 //ProgressDialog
-                ProgressDialog mDialog = new ProgressDialog(SignIn.this);
+                final ProgressDialog mDialog = new ProgressDialog(SignIn.this);
                 mDialog.setMessage("Please wait...");
                 mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
