@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.stormapps.tideeat.Common.Common;
 import com.stormapps.tideeat.Model.User;
 
 public class SignIn extends AppCompatActivity {
@@ -30,7 +32,7 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        edtPhone = (MaterialEditText) findViewById(R.id.edtPassword);
+        edtPhone = (MaterialEditText) findViewById(R.id.edtPhone);
         edtPassword = (MaterialEditText) findViewById(R.id.edtPassword);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
 
@@ -60,9 +62,11 @@ public class SignIn extends AppCompatActivity {
                             User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
 
                             if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
-                            }
-                            else {
+                                Intent homeIntent = new Intent(SignIn.this, Home.class);
+                                Common.currentUser = user;
+                                startActivity(homeIntent);
+                                finish();
+                            }else {
                                 Toast.makeText(SignIn.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                             }
                         }

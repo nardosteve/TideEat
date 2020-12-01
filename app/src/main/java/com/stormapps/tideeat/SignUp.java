@@ -47,7 +47,7 @@ public class SignUp extends AppCompatActivity {
                 mDialog.setMessage("Please wait...");
                 mDialog.show();
 
-                table_user.addValueEventListener(new ValueEventListener() {
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //Check if Phone number exists
