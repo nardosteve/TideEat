@@ -15,4 +15,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_price">Food Price</string>
+    <string name="todo">TODO</string>
+    <string name="_1_000">1,000</string>
+    <string name="description">Description....</string>
 </resources>
