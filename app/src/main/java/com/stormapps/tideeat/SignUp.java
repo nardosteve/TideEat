@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +62,9 @@ public class SignUp extends AppCompatActivity {
 
                             Toast.makeText(SignUp.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
                             finish();
+
+                            Intent intent = new Intent(SignUp.this, SignIn.class);
+                            startActivity(intent);
                         }
                     }
 
