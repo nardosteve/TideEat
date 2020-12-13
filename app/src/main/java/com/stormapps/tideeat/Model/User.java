@@ -6,7 +6,7 @@ public class User {
     private String Password;
     private String Phone;
 
-    public User(){
+    public User(String s, String toString){
 
     }
 

@@ -49,6 +49,7 @@ public class SignUp extends AppCompatActivity {
                 mDialog.show();
 
                 table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //Check if Phone number exists

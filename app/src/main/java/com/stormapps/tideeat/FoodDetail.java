@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -16,7 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.stormapps.tideeat.Database.Database;
 import com.stormapps.tideeat.Model.Food;
+import com.stormapps.tideeat.Model.Order;
 
 public class FoodDetail extends AppCompatActivity {
 
@@ -36,6 +40,8 @@ public class FoodDetail extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference food;
 
+    Food currentFood;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +54,21 @@ public class FoodDetail extends AppCompatActivity {
         numberButton = (ElegantNumberButton) findViewById(R.id.number_button);
         btnCart = (FloatingActionButton) findViewById(R.id.btnCart);
 
+        //Add event listener to cartButton inorder to add selected item to cart
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Database(getBaseContext()).addToCart(new Order(
+                        foodId,
+                        currentFood.getName(),
+                        numberButton.getNumber(),
+                        currentFood.getPrice(),
+                        currentFood.getDiscount()
+                ));
+                Toast.makeText(FoodDetail.this, "Added to Cart :-)", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //Add event listener to cartButton inorder to add selected item to cart
 
         food_name = (TextView) findViewById(R.id.food_name);
         food_price = (TextView) findViewById(R.id.food_price);
@@ -72,16 +93,15 @@ public class FoodDetail extends AppCompatActivity {
         food.child(foodId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Food food = snapshot.getValue(Food.class);
+                currentFood = snapshot.getValue(Food.class);
 
                 //Get image
-                Picasso.with(getBaseContext()).load(food.getImage())
-                        .into(food_image);
+                Picasso.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
 
-                collapsingToolbarLayout.setTitle(food.getName());
-                food_price.setText(food.getPrice());
-                food_name.setText(food.getName());
-                food_description.setText(food.getDescription());
+                collapsingToolbarLayout.setTitle(currentFood.getName());
+                food_price.setText(currentFood.getPrice());
+                food_name.setText(currentFood.getName());
+                food_description.setText(currentFood.getDescription());
             }
 
             @Override
