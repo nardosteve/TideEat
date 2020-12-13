@@ -86,27 +86,27 @@
 
                     <LinearLayout
                         android:id="@+id/layout_price"
-                        android:orientation="vertical"
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <ImageView
                             android:src="@drawable/ic_baseline_attach_money_24"
                             android:layout_weight="1"
-                            android:layout_width="50dp"
+                            android:layout_width="10dp"
                             android:layout_height="wrap_content"
                             android:contentDescription="@string/todo" />
 
                         <TextView
                             android:id="@+id/food_price"
-                            android:textColor="@android:color/black"
-                            android:text="@string/_1_000"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
-                            android:layout_width="50dp"
                             android:layout_weight="9"
-                            android:layout_height="wrap_content"/>
+                            android:text="@string/_1_000"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                     
