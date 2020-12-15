@@ -14,4 +14,5 @@
 
     <color name="overlayBackground">#f8d49d</color>
     <color name="overlayActionBar">#d35d6e</color>
+    <color name="drawer_color">#7f333639</color>
 </resources>
