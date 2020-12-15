@@ -2,11 +2,11 @@ package com.stormapps.tideeat.Model;
 
 public class Order {
 
-    private String ProductId;
-    private String ProductName;
-    private String Quantity;
-    private String Price;
-    private String Discount;
+    public String ProductId;
+    public String ProductName;
+    public String Quantity;
+    public String Price;
+    public String Discount;
 
     public Order() {
     }
