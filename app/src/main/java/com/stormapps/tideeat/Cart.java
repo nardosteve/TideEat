@@ -30,7 +30,7 @@ import java.util.Locale;
 public class Cart extends AppCompatActivity {
 
     public TextView txtTotalPrice;
-    public Button btnPlace;
+    Button btnPlace;
 
     public RecyclerView recyclerView;
     public RecyclerView.LayoutManager layoutManager;
@@ -56,7 +56,7 @@ public class Cart extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        txtTotalPrice = findViewById(R.id.total);
+        txtTotalPrice = (TextView)findViewById(R.id.total);
         btnPlace = (Button) findViewById(R.id.btnPlaceOrder);
 
         //Place Order

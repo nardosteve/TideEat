@@ -3,6 +3,7 @@ package com.stormapps.tideeat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.stormapps.tideeat.Model.Category;
 import com.stormapps.tideeat.ViewHolder.MenuViewHolder;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -72,7 +74,7 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_cart, R.id.nav_order)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -143,6 +145,29 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public boolean onNavigationItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if(id == R.id.nav_menu){
+            Intent menuIntent = new Intent(Home.this, Menu.class);
+            startActivity(menuIntent);
+        }else if(id == R.id.nav_cart){
+            Intent cartIntent = new Intent(Home.this, Cart.class);
+            startActivity(cartIntent);
+        }else if(id == R.id.nav_order){
+            Intent order = new Intent(Home.this, OrderStatus.class);
+            startActivity(order);
+        }else if(id == R.id.nav_logout){
+            Intent logout = new Intent(Home.this, SignIn.class);
+            logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logout);
+        }
+
+        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 }
