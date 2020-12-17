@@ -99,11 +99,10 @@ public class Cart extends AppCompatActivity {
                         txtTotalPrice.getText().toString(),
                         cart
                 );
+
                 //Submit order data to Firebase
                 //CurrentTimeMill -> key
-                requests.child(String.valueOf((System.currentTimeMillis())))
-                        .setValue(request);
-
+                requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 //Delete cart
                 new Database(getBaseContext()).cleanCart();
                 Toast.makeText(Cart.this, "Thank you for using TideEat, Order Placed!", Toast.LENGTH_SHORT).show();
@@ -120,6 +119,7 @@ public class Cart extends AppCompatActivity {
             }
         });
         //Clicking no to deny the items in the cart
+        alertDialog.show();
     }
 
     private void loadListFood() {
